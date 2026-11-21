@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Нейросмена — цифровые сотрудники на базе ИИ для бизнеса</title>
+  <meta name="description" content="Готовые ИИ-агенты для бизнеса: администратор 24/7, квалификация заявок, контент, юридический анализ договоров и HR-отбор. Обучение на ваших данных, запуск в Telegram или на сайте за 1 день.">
+  <meta name="theme-color" content="#050b14">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Нейросмена">
+  <meta property="og:title" content="Нейросмена — цифровые сотрудники на базе ИИ">
+  <meta property="og:description" content="Пять готовых ИИ-агентов, которые работают 24/7 без зарплаты и больничных. Обучение на ваших данных и запуск за 1 день.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Нейросмена — цифровые сотрудники на базе ИИ">
+  <meta name="twitter:description" content="Пять готовых ИИ-агентов для бизнеса. Работают 24/7, обучаются на ваших данных, запускаются за 1 день.">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <script>
+    (() => {
+      document.documentElement.classList.add('js');
+      const host = location.hostname;
+      if (host.endsWith('.github.io') || host.endsWith('.netlify.app')) {
+        document.documentElement.classList.add('preview-mode');
+      }
+    })();
+  </script>
+
+  <!-- Шрифты и Tailwind подключены локально, без внешних CDN -->
+  <link rel="preload" href="assets/fonts/manrope-cyrillic-v2.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope-latin-v2.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts-v2.css">
+  <link rel="stylesheet" href="css/tailwind-base.css">
+  <link rel="stylesheet" href="css/styles-v2.css">
+  <link rel="stylesheet" href="css/tailwind-utilities.css">
+</head>
+<body class="min-h-screen bg-ink-950 text-slate-200 antialiased">
+
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <!-- Иконки -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite" aria-hidden="true">
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3Z"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M8 21h8"/><path d="M3 7h18"/><path d="m3 7 4 8 4-8"/><path d="m13 7 4 8 4-8"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3 1.9 5.8L20 10.7l-6.1 1.9L12 18.4l-1.9-5.8L4 10.7l6.1-1.9L12 3Z"/><path d="M19 15v4"/><path d="M17 17h4"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 19.5V5a2 2 0 0 1 2-2h14v18H6.5A2.5 2.5 0 0 0 4 19.5Z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
+    <symbol id="i-telegram" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></symbol>
+  </svg>
+
+  <div class="page-bg" aria-hidden="true">
+    <div class="page-grid"></div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+    <div class="noise"></div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="mx-auto flex h-[74px] max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
+      <a class="brand" href="#" aria-label="Нейросмена — на главную">
+        <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="46" height="46" rx="14" fill="url(#brandFill)" stroke="rgba(94,234,212,.35)"/>
+          <path d="M15 33V15l18 18V15" stroke="url(#brandStroke)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="15" cy="15" r="2.6" fill="#8afff0"/>
+          <circle cx="33" cy="33" r="2.6" fill="#38bdf8"/>
+          <defs>
+            <linearGradient id="brandFill" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#0d2034"/><stop offset="1" stop-color="#071019"/>
+            </linearGradient>
+            <linearGradient id="brandStroke" x1="15" y1="15" x2="33" y2="33" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8afff0"/><stop offset="1" stop-color="#38bdf8"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="brand-name">нейросмена<span class="brand-dot">.</span></span>
+      </a>
+
+      <nav class="hidden items-center gap-8 lg:flex" aria-label="Основная навигация">
+        <a class="nav-link" href="#catalog">Каталог</a>
+        <a class="nav-link" href="#how">Как это работает</a>
+        <a class="nav-link" href="#why">Почему это работает</a>
+        <a class="nav-link" href="#faq">Вопросы</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <a class="btn btn-primary btn-sm hidden sm:inline-flex" href="#catalog">
+          <span>Выбрать агента</span>
+          <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
+        <button class="menu-toggle lg:hidden" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Открыть меню">
+          <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu lg:hidden" id="mobileMenu" hidden>
+      <nav class="mx-auto grid max-w-7xl gap-1 px-4 pb-5 pt-2" aria-label="Мобильная навигация">
+        <a class="mobile-link" href="#catalog">Каталог</a>
+        <a class="mobile-link" href="#how">Как это работает</a>
+        <a class="mobile-link" href="#why">Почему это работает</a>
+        <a class="mobile-link" href="#faq">Вопросы</a>
+        <a class="btn btn-primary mt-3" href="#catalog">
+          <span>Выбрать агента</span>
+          <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Главный экран -->
+    <section class="relative overflow-hidden pb-16 pt-32 sm:pt-36 lg:pb-24 lg:pt-40">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
+
+          <div class="lg:col-span-7">
+            <div class="reveal hero-badge">
+              <span class="live-dot" aria-hidden="true"></span>
+              5 готовых агентов <span class="text-slate-600">·</span> запуск за 1 день
+            </div>
+
+            <h1 class="hero-title reveal" style="--delay:.05s">
+              Цифровые сотрудники на базе ИИ для вашего бизнеса —
+              <span class="text-gradient">работают 24/7</span> без зарплаты и больничных
+            </h1>
+
+            <p class="hero-sub reveal" style="--delay:.1s">
+              Готовые ИИ-агенты берут на себя переписки, заявки, контент и документы.
+              Обучаем на ваших данных и запускаем там, где уже общаются клиенты, —
+              без разработчиков и долгих интеграций.
+            </p>
+
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row reveal" style="--delay:.15s">
+              <a class="btn btn-primary btn-lg" href="#catalog">
+                <span>Выбрать агента</span>
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
+              <a class="btn btn-ghost btn-lg" href="#how">
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"/></svg>
+                <span>Как это работает</span>
+              </a>
+            </div>
+
+            <ul class="hero-trust reveal" style="--delay:.2s">
+              <li><span class="tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Без кода</li>
+              <li><span class="tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Обучение на ваших данных</li>
+              <li><span class="tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Поддержка после запуска</li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-5 reveal" style="--delay:.15s">
+            <div class="hero-visual">
+              <div class="console glass">
+                <div class="console-bar">
+                  <div class="flex items-center gap-1.5" aria-hidden="true">
+                    <span class="win-dot" style="background:#fb7185"></span>
+                    <span class="win-dot" style="background:#fbbf24"></span>
+                    <span class="win-dot" style="background:#34d399"></span>
+                  </div>
+                  <span class="console-path">agent / admin-24-7</span>
+                  <span class="console-status"><span class="live-dot"></span>онлайн</span>
+                </div>
+
+                <div class="console-head">
+                  <div class="agent-avatar">
+                    <svg class="icon" aria-hidden="true"><use href="#i-headset"/></svg>
+                  </div>
+                  <div class="min-w-0">
+                    <p class="console-name">ИИ-Администратор</p>
+                    <p class="console-sub">Telegram · база знаний подключена</p>
+                  </div>
+                  <span class="console-tag">24/7</span>
+                </div>
+
+                <div class="console-chat">
+                  <div class="chat-row is-client">
+                    <div class="bubble bubble-client">Здравствуйте! Можно записаться на завтра?</div>
+                  </div>
+                  <div class="chat-row is-agent">
+                    <span class="chat-avatar" aria-hidden="true">AI</span>
+                    <div class="bubble bubble-agent">Конечно! Завтра есть 11:00 и 16:30. Как удобнее?</div>
+                  </div>
+                  <div class="chat-row is-client">
+                    <div class="bubble bubble-client">16:30</div>
+                  </div>
+                  <div class="chat-row is-agent">
+                    <span class="chat-avatar" aria-hidden="true">AI</span>
+                    <div class="bubble bubble-agent">Записала вас на 16:30. Напомню за час до встречи и добавлю её в календарь.</div>
+                  </div>
+                </div>
+
+                <div class="console-foot">
+                  <span class="console-event"><span class="live-dot"></span>Заявка создана</span>
+                  <span>CRM обновлена · 14:03</span>
+                </div>
+              </div>
+
+              <div class="float-card float-card-a" aria-hidden="true">
+                <div class="float-card-head">
+                  <span class="float-icon"><svg class="icon icon-sm"><use href="#i-target"/></svg></span>
+                  <span>Лид квалифицирован</span>
+                </div>
+                <div class="float-score">92<span>/100</span></div>
+                <div class="float-bar"><span style="width:92%"></span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="integrations reveal" style="--delay:.1s">
+          <p class="integrations-label">Подключаем к инструментам, которыми вы уже пользуетесь</p>
+          <ul class="integration-list">
+            <li class="integration-chip"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-telegram"/></svg>Telegram</li>
+            <li class="integration-chip">WhatsApp</li>
+            <li class="integration-chip">Сайт</li>
+            <li class="integration-chip">amoCRM</li>
+            <li class="integration-chip">Bitrix24</li>
+            <li class="integration-chip">Google Sheets</li>
+            <li class="integration-chip">1С</li>
+          </ul>
+        </div>
+
+        <dl class="stats-band glass reveal" style="--delay:.15s">
+          <div class="stat">
+            <dt>Доступность</dt>
+            <dd>24/7</dd>
+            <p>на связи с клиентами</p>
+          </div>
+          <div class="stat">
+            <dt>Запуск</dt>
+            <dd>1 день</dd>
+            <p>от заявки до старта</p>
+          </div>
+          <div class="stat">
+            <dt>Ролей в каталоге</dt>
+            <dd>5</dd>
+            <p>готовых сценариев</p>
+          </div>
+          <div class="stat">
+            <dt>Больничных</dt>
+            <dd>0</dd>
+            <p>и ни одного отпуска</p>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Каталог -->
+    <section class="relative scroll-mt-24 py-20 sm:py-24 lg:py-28" id="catalog">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="section-head reveal">
+          <span class="eyebrow">Каталог агентов</span>
+          <div class="section-head-row">
+            <h2 class="section-title">Выберите цифрового сотрудника под свою задачу</h2>
+            <p class="section-lead">
+              Каждый агент — готовая роль с обучением на ваших данных, интеграциями
+              и поддержкой. Запуск не требует разработки.
+            </p>
+          </div>
+        </div>
+
+        <div class="catalog-grid mt-10">
+
+          <article class="agent-card glass reveal" style="--delay:0s">
+            <div class="agent-top">
+              <div class="agent-icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-headset"/></svg>
+              </div>
+              <span class="badge-soft badge-hot">Хит продаж</span>
+            </div>
+            <p class="agent-role">Клиентский сервис</p>
+            <h3 class="agent-name">ИИ-Администратор 24/7</h3>
+            <p class="agent-desc">
+              Закрывает типовые вопросы, записывает на консультации и напоминает
+              о встречах. Держит диалог в Telegram, WhatsApp и на сайте — без
+              выходных и очередей.
+            </p>
+            <p class="agent-tasks-label">Решает задачи</p>
+            <ul class="task-list">
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Отвечает на вопросы о ценах, услугах и графике</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Записывает клиентов и синхронизирует календарь</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Напоминает о встречах и оплатах</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Собирает контакты и историю обращений</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Передаёт сложный вопрос менеджеру</li>
+            </ul>
+            <div class="agent-footer">
+              <div class="price-row">
+                <div>
+                  <p class="price">49 000 ₽</p>
+                  <p class="price-note">внедрение под ключ</p>
+                </div>
+                <div class="price-month">
+                  <p>9 900 ₽<span>/мес</span></p>
+                  <p class="price-note">поддержка</p>
+                </div>
+              </div>
+              <button class="btn btn-card js-order" type="button"
+                      data-agent="ИИ-Администратор 24/7"
+                      data-price="49 000 ₽ + 9 900 ₽/мес">
+                <span>Заказать внедрение</span>
+                <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="agent-card glass reveal" style="--delay:.05s">
+            <div class="agent-top">
+              <div class="agent-icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-filter"/></svg>
+              </div>
+              <span class="badge-soft">Для отдела продаж</span>
+            </div>
+            <p class="agent-role">Продажи</p>
+            <h3 class="agent-name">Менеджер по квалификации заявок</h3>
+            <p class="agent-desc">
+              Принимает заявки из всех каналов и задаёт уточняющие вопросы по вашему
+              скрипту. Считает бюджет, срочность и готовность к покупке — менеджер
+              получает только горячие лиды.
+            </p>
+            <p class="agent-tasks-label">Решает задачи</p>
+            <ul class="task-list">
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Собирает заявки из Telegram, сайта и почты</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Ведёт диалог по скрипту квалификации</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Оценивает бюджет, срочность и роль клиента</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Расставляет приоритеты и распределяет лиды</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Создаёт карточку клиента в CRM</li>
+            </ul>
+            <div class="agent-footer">
+              <div class="price-row">
+                <div>
+                  <p class="price">59 000 ₽</p>
+                  <p class="price-note">внедрение под ключ</p>
+                </div>
+                <div class="price-month">
+                  <p>12 900 ₽<span>/мес</span></p>
+                  <p class="price-note">поддержка</p>
+                </div>
+              </div>
+              <button class="btn btn-card js-order" type="button"
+                      data-agent="Менеджер по квалификации заявок"
+                      data-price="59 000 ₽ + 12 900 ₽/мес">
+                <span>Заказать внедрение</span>
+                <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="agent-card glass reveal" style="--delay:.1s">
+            <div class="agent-top">
+              <div class="agent-icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg>
+              </div>
+              <span class="badge-soft">Быстрый старт</span>
+            </div>
+            <p class="agent-role">Маркетинг</p>
+            <h3 class="agent-name">ИИ-Контент-мейкер для соцсетей</h3>
+            <p class="agent-desc">
+              Пишет посты, сценарии и прогревы в вашем tone of voice, адаптирует
+              один текст под разные площадки. Составляет контент-план и публикует
+              по расписанию — вам остаётся согласовать.
+            </p>
+            <p class="agent-tasks-label">Решает задачи</p>
+            <ul class="task-list">
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Составляет контент-план по рубрикам</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Пишет посты, сторис и сценарии видео</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Адаптирует тексты под Telegram, VK и соцсети</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Подбирает заголовки, хештеги и идеи визуалов</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Публикует по расписанию и собирает статистику</li>
+            </ul>
+            <div class="agent-footer">
+              <div class="price-row">
+                <div>
+                  <p class="price">39 000 ₽</p>
+                  <p class="price-note">внедрение под ключ</p>
+                </div>
+                <div class="price-month">
+                  <p>7 900 ₽<span>/мес</span></p>
+                  <p class="price-note">поддержка</p>
+                </div>
+              </div>
+              <button class="btn btn-card js-order" type="button"
+                      data-agent="ИИ-Контент-мейкер для соцсетей"
+                      data-price="39 000 ₽ + 7 900 ₽/мес">
+                <span>Заказать внедрение</span>
+                <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="agent-card glass reveal" style="--delay:.05s">
+            <div class="agent-top">
+              <div class="agent-icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg>
+              </div>
+              <span class="badge-soft">Конфиденциально</span>
+            </div>
+            <p class="agent-role">Юридический отдел</p>
+            <h3 class="agent-name">Юридический аналитик договоров</h3>
+            <p class="agent-desc">
+              Читает договоры и приложения, находит рискованные условия и расхождения
+              с вашими требованиями. Готовит понятное резюме и формулировки правок —
+              быстрее ручной вычитки.
+            </p>
+            <p class="agent-tasks-label">Решает задачи</p>
+            <ul class="task-list">
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Проверяет договоры на скрытые риски</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Сравнивает редакции и находит изменения</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Сверяет сроки, штрафы и ответственность</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Готовит резюме рисков и вопросы юристу</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Предлагает безопасные формулировки</li>
+            </ul>
+            <div class="agent-footer">
+              <div class="price-row">
+                <div>
+                  <p class="price">79 000 ₽</p>
+                  <p class="price-note">внедрение под ключ</p>
+                </div>
+                <div class="price-month">
+                  <p>14 900 ₽<span>/мес</span></p>
+                  <p class="price-note">поддержка</p>
+                </div>
+              </div>
+              <button class="btn btn-card js-order" type="button"
+                      data-agent="Юридический аналитик договоров"
+                      data-price="79 000 ₽ + 14 900 ₽/мес">
+                <span>Заказать внедрение</span>
+                <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="agent-card glass reveal" style="--delay:.1s">
+            <div class="agent-top">
+              <div class="agent-icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>
+              </div>
+              <span class="badge-soft">Для растущих команд</span>
+            </div>
+            <p class="agent-role">HR и найм</p>
+            <h3 class="agent-name">ИИ-HR для отбора резюме</h3>
+            <p class="agent-desc">
+              Разбирает резюме и отклики по вашим критериям, задаёт кандидатам
+              уточняющие вопросы и собирает шорт-лист с обоснованием. Рекрутер
+              тратит время только на сильных кандидатов.
+            </p>
+            <p class="agent-tasks-label">Решает задачи</p>
+            <ul class="task-list">
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Разбирает резюме и отклики с job-сайтов</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Сверяет опыт и навыки с профилем вакансии</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Задаёт кандидатам уточняющие вопросы</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Формирует шорт-лист с оценкой и обоснованием</li>
+              <li><span class="task-tick"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-check"/></svg></span>Назначает интервью и напоминает кандидатам</li>
+            </ul>
+            <div class="agent-footer">
+              <div class="price-row">
+                <div>
+                  <p class="price">54 000 ₽</p>
+                  <p class="price-note">внедрение под ключ</p>
+                </div>
+                <div class="price-month">
+                  <p>10 900 ₽<span>/мес</span></p>
+                  <p class="price-note">поддержка</p>
+                </div>
+              </div>
+              <button class="btn btn-card js-order" type="button"
+                      data-agent="ИИ-HR для отбора резюме"
+                      data-price="54 000 ₽ + 10 900 ₽/мес">
+                <span>Заказать внедрение</span>
+                <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </button>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="preview-note">
+          Приём заявок скоро откроется. Пока можно изучить каталог,
+          описание агентов и цены.
+        </p>
+
+        <p class="catalog-consult reveal">
+          Не знаете, с чего начать?
+          <button class="link-mint js-order" type="button"
+                  data-agent="Подбор агента"
+                  data-price="Бесплатная консультация"
+                  data-mode="consult">
+            Поможем выбрать агента под задачу
+          </button>
+        </p>
+      </div>
+    </section>
+
+    <!-- Как это работает -->
+    <section class="relative scroll-mt-24 py-20 sm:py-24 lg:py-28" id="how">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="section-head reveal">
+          <span class="eyebrow">Как это работает</span>
+          <div class="section-head-row">
+            <h2 class="section-title">От заявки до работающего агента — один день</h2>
+            <p class="section-lead">
+              Без технических специалистов с вашей стороны. Настройку, обучение
+              и запуск мы берём на себя.
+            </p>
+          </div>
+        </div>
+
+        <div class="steps-grid mt-10">
+          <article class="step-card glass reveal" style="--delay:0s">
+            <div class="step-top">
+              <span class="step-num">01</span>
+              <span class="step-icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg>
+              </span>
+            </div>
+            <h3 class="step-title">Выбираете агента</h3>
+            <p class="step-desc">
+              Изучаете каталог и оставляете заявку. Если сомневаетесь между ролями —
+              поможем выбрать под задачу и бюджет.
+            </p>
+            <span class="step-meta"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-clock"/></svg>10 минут</span>
+          </article>
+
+          <article class="step-card glass reveal" style="--delay:.07s">
+            <div class="step-top">
+              <span class="step-num">02</span>
+              <span class="step-icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>
+              </span>
+            </div>
+            <h3 class="step-title">Обучаем на ваших данных</h3>
+            <p class="step-desc">
+              Собираем скрипты, базу знаний и tone of voice. Показываем тестовые
+              диалоги и вносим правки ещё до запуска.
+            </p>
+            <span class="step-meta"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-clock"/></svg>в тот же день</span>
+          </article>
+
+          <article class="step-card glass reveal" style="--delay:.14s">
+            <div class="step-top">
+              <span class="step-num">03</span>
+              <span class="step-icon">
+                <svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>
+              </span>
+            </div>
+            <h3 class="step-title">Запускаем за 1 день</h3>
+            <p class="step-desc">
+              Подключаем Telegram, WhatsApp или виджет на сайт, тестируем на реальных
+              запросах и передаём вам доступы.
+            </p>
+            <span class="step-meta"><svg class="icon icon-xs" aria-hidden="true"><use href="#i-clock"/></svg>1 день</span>
+          </article>
+        </div>
+
+        <div class="note-bar glass reveal">
+          <span class="note-icon"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg></span>
+          <p>
+            <strong>Сначала показываем, потом запускаем.</strong>
+            Вы видите, как агент отвечает на ваших примерах, и вносите правки
+            до того, как он начнёт общаться с клиентами.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Почему это работает -->
+    <section class="relative scroll-mt-24 py-20 sm:py-24 lg:py-28" id="why">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-14">
+          <div class="lg:col-span-5">
+            <div class="lg:sticky lg:top-28 reveal">
+              <span class="eyebrow">Почему это работает</span>
+              <h2 class="section-title mt-4">Сотрудник, которого не нужно контролировать</h2>
+              <p class="mt-5 max-w-md text-[15px] leading-relaxed text-slate-400">
+                Агент не заменяет вашу команду. Он снимает повторяющиеся задачи,
+                чтобы у людей осталось время на решения, отношения и рост.
+              </p>
+              <div class="why-note glass">
+                <div class="why-note-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></div>
+                <div>
+                  <p class="why-note-title">Ваши данные остаются вашими</p>
+                  <p class="why-note-text">Работаем по NDA, не обучаем агента на чужих данных и не передаём доступы третьим лицам.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+            <article class="feature-card reveal" style="--delay:0s">
+              <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg></span>
+              <h3>В ваших каналах</h3>
+              <p>Telegram, WhatsApp, сайт и почта. Агент отвечает там, где клиенту удобно, и не заставляет его скачивать новое приложение.</p>
+            </article>
+            <article class="feature-card reveal" style="--delay:.05s">
+              <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg></span>
+              <h3>Вашим голосом</h3>
+              <p>Обучаем на регламентах, скриптах и базе знаний. Никаких шаблонных «здравствуйте, я бот» — только ваш стиль общения.</p>
+            </article>
+            <article class="feature-card reveal" style="--delay:.1s">
+              <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-target"/></svg></span>
+              <h3>Без потерянных заявок</h3>
+              <p>Каждый диалог фиксируется, сложные вопросы уходят человеку, а карточка клиента обновляется в CRM автоматически.</p>
+            </article>
+            <article class="feature-card reveal" style="--delay:.15s">
+              <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg></span>
+              <h3>Без найма и обучения</h3>
+              <p>Пиковые нагрузки, новые направления, несколько языков — агент масштабируется за минуты, а не за месяцы поиска людей.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Вопросы -->
+    <section class="relative scroll-mt-24 py-20 sm:py-24 lg:py-28" id="faq">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="grid gap-10 lg:grid-cols-12 lg:gap-14">
+          <div class="lg:col-span-4 reveal">
+            <span class="eyebrow">Вопросы</span>
+            <h2 class="section-title mt-4">Коротко о главном</h2>
+            <p class="mt-5 max-w-sm text-[15px] leading-relaxed text-slate-400">
+              Если не нашли ответ — напишите нам. Уточним задачу и честно скажем,
+              подойдёт ли агент под ваш процесс.
+            </p>
+            <button class="btn btn-ghost mt-7 js-order" type="button"
+                    data-agent="Консультация"
+                    data-price="Без обязательств"
+                    data-mode="consult">
+              <span>Задать вопрос</span>
+              <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </button>
+          </div>
+
+          <div class="lg:col-span-8">
+            <div class="faq-list glass reveal" style="--delay:.05s">
+              <details class="faq-item">
+                <summary>
+                  <span>Придётся ли мне что-то настраивать самому?</span>
+                  <span class="faq-plus"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span>
+                </summary>
+                <p>Нет. Вы присылаете материалы — сайт, прайс, скрипты, примеры переписок. Мы собираем базу знаний, настраиваем сценарии и подключаем каналы. От вас нужны только доступы и обратная связь на этапе тестовых диалогов.</p>
+              </details>
+              <details class="faq-item">
+                <summary>
+                  <span>Что будет, если агент не знает ответ?</span>
+                  <span class="faq-plus"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span>
+                </summary>
+                <p>Он не будет выдумывать. Агент скажет, что уточнит информацию, и передаст диалог человеку. Все такие случаи видны в логах — мы пополняем базу знаний, и со временем вопросов становится меньше.</p>
+              </details>
+              <details class="faq-item">
+                <summary>
+                  <span>Куда можно подключить агента?</span>
+                  <span class="faq-plus"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span>
+                </summary>
+                <p>Telegram, WhatsApp, виджет на сайте и почту. На этапе внедрения подключаем CRM — amoCRM, Bitrix24 или вашу систему через API, — чтобы заявки и история общения попадали в одно окно.</p>
+              </details>
+              <details class="faq-item">
+                <summary>
+                  <span>Что входит в ежемесячную поддержку?</span>
+                  <span class="faq-plus"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span>
+                </summary>
+                <p>Мониторинг работы, правки базы знаний, доработка сценариев и отчёт по диалогам. Если меняются цены, услуги или скрипты — обновляем агента, чтобы он не отвечал клиентам устаревшей информацией.</p>
+              </details>
+              <details class="faq-item">
+                <summary>
+                  <span>Как быстро запускается агент?</span>
+                  <span class="faq-plus"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span>
+                </summary>
+                <p>Базовый запуск — за 1 день после получения материалов и доступов. Сложные сценарии с несколькими каналами и интеграцией в CRM занимают 3–5 дней. Точный срок зафиксируем до начала работ.</p>
+              </details>
+              <details class="faq-item">
+                <summary>
+                  <span>Кому принадлежат данные и доступы?</span>
+                  <span class="faq-plus"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span>
+                </summary>
+                <p>Вам. Мы работаем по NDA, используем ваши аккаунты и не передаём данные третьим лицам. При прекращении сотрудничества передаём базу знаний и сценарии, а доступы отзываются.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Финальный призыв -->
+    <section class="relative pb-20 pt-4 sm:pb-24 lg:pb-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="cta-panel reveal">
+          <div class="cta-content">
+            <span class="eyebrow">Следующий шаг</span>
+            <h2 class="cta-title">Освободите команду от рутины</h2>
+            <p class="cta-text">
+              Выберите готового агента — мы обучим его на ваших данных и запустим
+              за 1 день. Покажем демо-диалог на ваших примерах до старта.
+            </p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a class="btn btn-primary btn-lg" href="#catalog">
+                <span>Выбрать агента</span>
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
+              <button class="btn btn-ghost btn-lg js-order" type="button"
+                      data-agent="Подбор агента"
+                      data-price="Бесплатная консультация"
+                      data-mode="consult">
+                <span>Обсудить задачу</span>
+              </button>
+            </div>
+            <p class="mt-5 text-[12px] text-slate-500">Без обязательств. Ответим в Telegram в течение рабочего дня.</p>
+          </div>
+          <div class="cta-orbit" aria-hidden="true">
+            <div class="orbit orbit-1"></div>
+            <div class="orbit orbit-2"></div>
+            <div class="orbit-core">
+              <svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg>
+            </div>
+            <span class="orbit-chip orbit-chip-1">24/7</span>
+            <span class="orbit-chip orbit-chip-2">1 день</span>
+            <span class="orbit-chip orbit-chip-3">0 больничных</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <a class="brand" href="#" aria-label="Нейросмена — на главную">
+            <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <rect x="1" y="1" width="46" height="46" rx="14" fill="#0b1a2a" stroke="rgba(94,234,212,.35)"/>
+              <path d="M15 33V15l18 18V15" stroke="#5eead4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="15" cy="15" r="2.6" fill="#8afff0"/>
+              <circle cx="33" cy="33" r="2.6" fill="#38bdf8"/>
+            </svg>
+            <span class="brand-name">нейросмена<span class="brand-dot">.</span></span>
+          </a>
+          <p class="mt-5 max-w-sm text-sm leading-relaxed text-slate-400">
+            Цифровые сотрудники на базе ИИ для малого и среднего бизнеса.
+            Работают 24/7, обучаются на ваших данных и не уходят в отпуск.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="footer-chip">Запуск за 1 день</span>
+            <span class="footer-chip">Работаем по NDA</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-3">
+          <p class="footer-heading">Разделы</p>
+          <ul class="mt-4 grid gap-2.5">
+            <li><a class="footer-link" href="#catalog">Каталог агентов</a></li>
+            <li><a class="footer-link" href="#how">Как это работает</a></li>
+            <li><a class="footer-link" href="#why">Почему это работает</a></li>
+            <li><a class="footer-link" href="#faq">Вопросы и ответы</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4">
+          <p class="footer-heading">Связь</p>
+          <p class="mt-4 text-sm leading-relaxed text-slate-400">
+            Оставьте заявку — уточним задачу и предложим агента под ваш процесс.
+          </p>
+          <button class="btn btn-ghost mt-5 js-order" type="button"
+                  data-agent="Подбор агента"
+                  data-price="Бесплатная консультация"
+                  data-mode="consult">
+            <span>Обсудить задачу</span>
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-12 flex flex-col gap-4 border-t border-white/[0.07] pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>© <span id="year">2026</span> Нейросмена. Все права защищены.</p>
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <a class="footer-link" href="privacy.html">Политика конфиденциальности</a>
+          <span>Работаем по NDA</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Модальное окно заявки -->
+  <div class="modal" id="orderModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="orderTitle" aria-describedby="orderSubtitle" tabindex="-1">
+      <button class="modal-close" type="button" data-close-modal aria-label="Закрыть окно">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+
+      <div class="modal-head">
+        <span class="eyebrow" id="orderEyebrow">Заказ внедрения</span>
+        <h2 class="modal-title" id="orderTitle">ИИ-Администратор 24/7</h2>
+        <p class="modal-subtitle" id="orderSubtitle">
+          Оставьте контакты — вернёмся в Telegram, уточним детали и пришлём план внедрения.
+        </p>
+      </div>
+
+      <div id="orderFormStep">
+        <div class="selected-agent">
+          <span class="selected-agent-icon">
+            <svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg>
+          </span>
+          <div class="min-w-0">
+            <p class="selected-label" id="selectedAgentLabel">Выбранный агент</p>
+            <p class="selected-name" id="selectedAgentName">ИИ-Администратор 24/7</p>
+          </div>
+          <span class="selected-price" id="selectedAgentPrice">49 000 ₽ + 9 900 ₽/мес</span>
+        </div>
+
+        <form class="order-form" id="orderForm" name="ai-agent-order" method="POST" action="/"
+              data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" id="formNameField" value="ai-agent-order">
+          <input type="hidden" name="agent" id="agentField" value="">
+          <p class="hp-field" aria-hidden="true">
+            <label>Не заполняйте это поле
+              <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+            </label>
+          </p>
+
+          <div class="form-field">
+            <label class="field-label" for="clientName">Ваше имя</label>
+            <input class="field" id="clientName" name="name" type="text"
+                   autocomplete="name" maxlength="80" placeholder="Как к вам обращаться?"
+                   aria-describedby="clientNameError" required>
+            <p class="field-error" id="clientNameError" hidden></p>
+          </div>
+
+          <div class="form-field">
+            <label class="field-label" for="clientNiche">Ниша бизнеса</label>
+            <input class="field" id="clientNiche" name="niche" type="text"
+                   maxlength="120" placeholder="Например: стоматология"
+                   aria-describedby="clientNicheError" required>
+            <p class="field-error" id="clientNicheError" hidden></p>
+          </div>
+
+          <div class="form-field">
+            <label class="field-label" for="clientTelegram">Ник в Telegram</label>
+            <div class="input-prefix">
+              <span class="prefix" aria-hidden="true">@</span>
+              <input class="field" id="clientTelegram" name="telegram" type="text"
+                     autocomplete="off" spellcheck="false" maxlength="64"
+                     placeholder="username" aria-describedby="clientTelegramError" required>
+            </div>
+            <p class="field-hint">Чтобы мы могли написать вам напрямую.</p>
+            <p class="field-error" id="clientTelegramError" hidden></p>
+          </div>
+
+          <button class="btn btn-primary order-submit" id="submitBtn" type="submit">
+            <span id="submitLabel">Отправить заявку</span>
+            <span class="spinner" id="submitSpinner" aria-hidden="true" hidden></span>
+            <svg class="icon icon-sm submit-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </button>
+
+          <p class="privacy-note">
+            Отправляя заявку, вы соглашаетесь с
+            <a href="privacy.html" target="_blank" rel="noopener noreferrer">политикой обработки данных</a>.
+            Без спама — только по делу.
+          </p>
+        </form>
+      </div>
+
+      <div class="order-result" id="orderSuccessStep" hidden>
+        <div class="result-icon result-icon-success">
+          <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+        </div>
+        <h3 class="result-title" id="successTitle">Заявка отправлена</h3>
+        <p class="result-text" id="successText">
+          Спасибо, <span id="successName">друг</span>! Мы напишем вам в Telegram
+          <strong id="successTelegram">@username</strong> в течение рабочего дня.
+        </p>
+        <div class="result-summary">
+          <div>
+            <span>Агент</span>
+            <p id="successAgent">ИИ-Администратор 24/7</p>
+          </div>
+          <div>
+            <span>Ниша</span>
+            <p id="successNiche">—</p>
+          </div>
+        </div>
+        <div class="result-steps">
+          <p><span>1</span>Изучим вашу задачу и материалы</p>
+          <p><span>2</span>Напишем в Telegram и уточним детали</p>
+          <p><span>3</span>Покажем демо-диалог на ваших примерах</p>
+        </div>
+        <button class="btn btn-primary w-full" type="button" data-close-modal>Вернуться в каталог</button>
+      </div>
+
+      <div class="order-result" id="orderErrorStep" hidden>
+        <div class="result-icon result-icon-error">
+          <svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>
+        </div>
+        <h3 class="result-title" id="errorTitle">Не удалось отправить</h3>
+        <p class="result-text" id="errorText">
+          Проверьте соединение и попробуйте ещё раз. Введённые данные сохранились —
+          ничего заполнять заново не нужно.
+        </p>
+        <div class="result-actions">
+          <button class="btn btn-primary" id="retryBtn" type="button">
+            <span>Попробовать снова</span>
+          </button>
+          <button class="btn btn-ghost" id="copyBtn" type="button">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#i-copy"/></svg>
+            <span>Скопировать заявку</span>
+          </button>
+        </div>
+        <p class="result-hint">Если ошибка повторяется, пришлите скопированный текст нам в Telegram.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

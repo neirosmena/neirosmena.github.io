@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Служебная страница политики не индексируется
+Disallow: /privacy.html
