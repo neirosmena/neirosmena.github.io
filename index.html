@@ -13,7 +13,7 @@
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="Нейросмена">
   <meta property="og:title" content="Нейросмена — цифровые сотрудники на базе ИИ">
-  <meta property="og:description" content="Пять готовых ИИ-агентов, которые работают 24/7 без зарплаты и больничных. Обучение на ваших данных и запуск за 1 день.">
+  <meta property="og:description" content="Пять готовых ИИ-агентов, которые работают 24/7. Обучение на ваших данных и запуск за 1 день.">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Нейросмена — цифровые сотрудники на базе ИИ">
   <meta name="twitter:description" content="Пять готовых ИИ-агентов для бизнеса. Работают 24/7, обучаются на ваших данных, запускаются за 1 день.">
@@ -143,7 +143,7 @@
 
             <h1 class="hero-title reveal" style="--delay:.05s">
               Цифровые сотрудники на базе ИИ для вашего бизнеса —
-              <span class="text-gradient">работают 24/7</span> без зарплаты и больничных
+              <span class="text-gradient">работают 24/7</span>
             </h1>
 
             <p class="hero-sub reveal" style="--delay:.1s">
@@ -260,9 +260,9 @@
             <p>готовых сценариев</p>
           </div>
           <div class="stat">
-            <dt>Больничных</dt>
-            <dd>0</dd>
-            <p>и ни одного отпуска</p>
+            <dt>Интеграции</dt>
+            <dd>7</dd>
+            <p>каналов и сервисов</p>
           </div>
         </dl>
       </div>
@@ -736,7 +736,7 @@
             </div>
             <span class="orbit-chip orbit-chip-1">24/7</span>
             <span class="orbit-chip orbit-chip-2">1 день</span>
-            <span class="orbit-chip orbit-chip-3">0 больничных</span>
+            <span class="orbit-chip orbit-chip-3">7 интеграций</span>
           </div>
         </div>
       </div>
@@ -759,7 +759,7 @@
           </a>
           <p class="mt-5 max-w-sm text-sm leading-relaxed text-slate-400">
             Цифровые сотрудники на базе ИИ для малого и среднего бизнеса.
-            Работают 24/7, обучаются на ваших данных и не уходят в отпуск.
+            Работают 24/7 и обучаются на ваших данных.
           </p>
           <div class="mt-6 flex flex-wrap gap-2">
             <span class="footer-chip">Запуск за 1 день</span>
@@ -796,11 +796,27 @@
         <p>© <span id="year">2026</span> Нейросмена. Все права защищены.</p>
         <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
           <a class="footer-link" href="privacy.html">Политика конфиденциальности</a>
+          <button class="footer-link cookie-settings js-cookie-settings" type="button">Настройки cookie</button>
           <span>Работаем по NDA</span>
         </div>
       </div>
     </div>
   </footer>
+
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Уведомление об использовании cookie" hidden>
+    <div class="cookie-banner-body">
+      <p class="cookie-banner-title">Cookie и данные</p>
+      <p class="cookie-banner-text">
+        Мы используем только технические cookie и локальное хранилище, чтобы сайт
+        работал и запоминал ваш выбор. Рекламных трекеров и аналитики нет.
+        <a href="privacy.html">Подробнее</a>
+      </p>
+    </div>
+    <div class="cookie-banner-actions">
+      <button class="btn btn-ghost btn-sm js-cookie-necessary" type="button">Только необходимые</button>
+      <button class="btn btn-primary btn-sm js-cookie-accept" type="button">Принять</button>
+    </div>
+  </div>
 
   <!-- Модальное окно заявки -->
   <div class="modal" id="orderModal" aria-hidden="true">
@@ -934,6 +950,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script src="js/cookie-consent.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

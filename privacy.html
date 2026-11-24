@@ -109,22 +109,29 @@
 
         <h2>5. Кто имеет доступ и где хранятся данные</h2>
         <p>
-          Заявки получает команда проекта — в объёме, необходимом для ответа на
-          обращение. Для приёма и хранения форм используется хостинг-платформа
-          Netlify; она обрабатывает данные в рамках оказания услуг хостинга.
+          Сайт размещён на GitHub Pages — это статический хостинг, который не
+          принимает заявки. Сейчас форма обратной связи отключена, поэтому
+          персональные данные через сайт не собираются. Когда форма будет
+          подключена, здесь появится информация о сервисе, который будет
+          принимать заявки.
         </p>
         <p>
-          Мы храним заявки до достижения цели обработки, отзыва согласия или
-          удаления по вашему запросу. Доступ к ним ограничен и не передаётся
-          подрядчикам, не участвующим в работе над вашим обращением.
+          Доступ к настройкам сайта ограничен командой проекта. Мы не передаём
+          данные подрядчикам, не участвующим в работе над сайтом.
         </p>
 
         <h2>6. Cookie и внешние ресурсы</h2>
         <p>
           Сайт не использует рекламные cookie и системы веб-аналитики. Шрифты
-          и стили загружаются с самого сайта через хостинг Netlify — без
-          обращений к Google Fonts и внешним CDN. Хостинг может использовать
-          служебные cookie, необходимые для работы сайта и форм.
+          и стили загружаются с самого сайта — без обращений к Google Fonts и
+          внешним CDN. Для запоминания выбора в уведомлении о cookie используется
+          <strong>localStorage</strong> браузера: эти данные остаются на вашем
+          устройстве и не отправляются на сервер.
+        </p>
+        <p>
+          Хостинг GitHub Pages может вести технические журналы (IP-адрес, время
+          запроса), необходимые для работы и защиты сайта. Изменить выбор можно
+          кнопкой «Настройки cookie» в подвале сайта.
         </p>
 
         <h2>7. Ваши права</h2>
@@ -176,11 +183,28 @@
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <a class="footer-link" href="index.html">Главная</a>
         <a class="footer-link" href="index.html#faq">Вопросы</a>
+        <button class="footer-link cookie-settings js-cookie-settings" type="button">Настройки cookie</button>
         <span>Работаем по NDA</span>
       </div>
     </div>
   </footer>
 
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Уведомление об использовании cookie" hidden>
+    <div class="cookie-banner-body">
+      <p class="cookie-banner-title">Cookie и данные</p>
+      <p class="cookie-banner-text">
+        Мы используем только технические cookie и локальное хранилище, чтобы сайт
+        работал и запоминал ваш выбор. Рекламных трекеров и аналитики нет.
+        <a href="privacy.html">Подробнее</a>
+      </p>
+    </div>
+    <div class="cookie-banner-actions">
+      <button class="btn btn-ghost btn-sm js-cookie-necessary" type="button">Только необходимые</button>
+      <button class="btn btn-primary btn-sm js-cookie-accept" type="button">Принять</button>
+    </div>
+  </div>
+
+  <script src="js/cookie-consent.js" defer></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
