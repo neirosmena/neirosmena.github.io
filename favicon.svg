@@ -5,12 +5,12 @@
       <stop offset="1" stop-color="#050b14"/>
     </linearGradient>
     <linearGradient id="line" x1="18" y1="18" x2="46" y2="46" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#f6ffd6"/>
-      <stop offset="1" stop-color="#f5b971"/>
+      <stop stop-color="#b6fff5"/>
+      <stop offset="1" stop-color="#38bdf8"/>
     </linearGradient>
   </defs>
   <rect x="2" y="2" width="60" height="60" rx="17" fill="url(#bg)" stroke="#1d3d4a" stroke-width="1.5"/>
   <path d="M20 45V19l24 26V19" fill="none" stroke="url(#line)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="20" cy="19" r="3.6" fill="#f6ffd6"/>
-  <circle cx="44" cy="45" r="3.6" fill="#f5b971"/>
+  <circle cx="20" cy="19" r="3.6" fill="#b6fff5"/>
+  <circle cx="44" cy="45" r="3.6" fill="#38bdf8"/>
 </svg>
